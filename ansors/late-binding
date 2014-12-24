@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ansor : Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Ansor</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neotheicebird/ansor">View on GitHub</a>
+
+          <h1 id="project_title">Ansor</h1>
+          <h2 id="project_tagline">Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/neotheicebird/ansor/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/neotheicebird/ansor/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-ansor" class="anchor" href="#welcome-to-ansor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to AnSOr.</h3>
+
+<p>Here I am collecting awesome ansors (read: answers) found in <a href="http://stackoverflow.com">SO</a> to great (mostly python related) questions. Here they are:</p>
+
+<h1>
+<a id="1-late-binding" class="anchor" href="#1-late-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://stackoverflow.com/a/27636966/2200571">1 Late binding</a>
+</h1>
+
+<pre><code>fns = []
+for i in range(5):
+    def fn(x):
+        return x + i
+    fns.append(fn)
+
+# Passing a 1 to each function in the list I would expect an output of [1, 2, 3, 4, 5].
+print [f(1) for f in fns]    # prints [5, 5, 5, 5, 5]
+</code></pre>
+
+<p>The point to understand here is that python uses a late binding approach and the function call takes place at runtime. So, Murphy's law. This is how it is fixed:</p>
+
+<pre><code>for i in range(5):
+    def fn(x, i=i):  # &lt;-----
+        return x + i
+    fns.append(fn)
+
+print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
+</code></pre>
+
+<p>Why is this working this way? The answer is in the closure of the environment they're defined in. That is scope of a variable or which namespace python would search for the variable when it is executed. So in the first case <code>i</code> is global, but in the second one by using a default <code>i</code> the value of <code>i</code> is made local to the function. <a href="http://stackoverflow.com/questions/233673/lexical-closures-in-python">more so</a></p>
+
+<p>Is there a more pythonic way to do this. There sure are many:</p>
+
+<pre><code>fns = []
+
+for i in range(5):
+    def fn(j):
+        def inner(x): 
+            return x + j
+        return inner
+    fns.append(fn(i))
+
+print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
+
+# or
+
+from functools import partial
+
+fns = []
+def fn(x, i):
+    return x+i
+for i in range(5):\
+    fns.append(partial(fn, i))
+
+print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
+
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ansor maintained by <a href="https://github.com/neotheicebird">neotheicebird</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
