@@ -66,13 +66,27 @@ print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
 
 <pre><code>fns = []
 
-for i in xrange(5):
+for i in range(5):
     def fn(j):
-        def inner(x): return x * j
+        def inner(x): 
+            return x + j
         return inner
     fns.append(fn(i))
 
 print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
+
+# or
+
+from functools import partial
+
+fns = []
+def fn(x, i):
+    return x+i
+for i in range(5):\
+    fns.append(partial(fn, i))
+
+print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
+
 </code></pre>
       </section>
     </div>
