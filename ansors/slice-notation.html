@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ansor : Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <title>Ansor</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neotheicebird/ansor">View on GitHub</a>
+
+          <h1 id="project_title">Ansor</h1>
+          <h2 id="project_tagline">Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/neotheicebird/ansor/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/neotheicebird/ansor/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-ansor" class="anchor" href="#welcome-to-ansor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to AnSOr.</h3>
+
+<p>Back to <a href="../"><< Topics</a></p>
+
+<h1>
+<a id="1-late-binding" class="anchor" href="#1-late-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://stackoverflow.com/a/509295/2200571">2 Slice notation</a>
+</h1>
+
+<p>Some simple tools we have to slice are:</p>
+<pre><code>a[start:end] # items from 'start' through 'end-1'
+a[start:]    # items from 'start' through the rest of the array
+a[:end]    # items from the beginning through end-1
+a[:]    # a copy of the whole array
+a[start:end:step] # start through not past end, by step (unlike matlab, step isn't in the middle)
+a[::-1]    # This would reverse the list, read from beginning to end with a step of -1
+</code></pre>
+
+<p>We can do slicing with negative indices</p>
+
+<pre><code>
+a[-1]    # get last item in the array
+a[-1:]    # last item as an array
+# a '-n' is just a shortcut to mean 'length(list)-n'
+a[-4:-1:2]    # if len(a) == 4, then this line is equivalent to a[0:3:2]
+a[-4:2]    # would be equivalent to a[0:2], you got the point right?
+a[-1:2]    # this would be empty, remember python lists (or sets, tuples) are not cyclic, 
+             # they just take two kinds of indices
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ansor maintained by <a href="https://github.com/neotheicebird">neotheicebird</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
