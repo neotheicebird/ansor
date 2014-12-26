@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ansor : Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <title>Ansor</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neotheicebird/ansor">View on GitHub</a>
+
+          <h1 id="project_title">Ansor</h1>
+          <h2 id="project_tagline">Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/neotheicebird/ansor/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/neotheicebird/ansor/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-ansor" class="anchor" href="#welcome-to-ansor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to AnSOr.</h3>
+
+<p>Back to <a href="../"><< Topics</a></p>
+
+<h1>
+<a id="1-late-binding" class="anchor" href="#1-late-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://stackoverflow.com/questions/1909307/what-does-on-mean">3 Big-O notation</a>
+<h3>What is Big-O notation?</h3>
+
+<strong>Big-O notation is a relative representation of the complexity of an algorithm</strong>
+The complexity of various examples are given below:
+O(1) means in constant time - independent of the number of items.
+O(N) means in proportion to the number of items.
+O(log N) means a time proportional to log(N)
+
+Lets take two numbers 3 and 5. We can do addition, multiplication, division, subtraction and so on with it, for each of the operations
+we would have to come up with an algorithm to solve it. If addition is the costliest operation in the algorithm, the bottleneck part
+then to add two numbers of 2 digits each we need to do about 3 additions, then for a 6-digit number about 11 additions, a close 
+guess of the number of additions would be, for two n-digit numbers, it is 2*n-1. so we can say that this follows O(n) complexity, linearly increasing.
+
+For multiplication it is a little different, If we have two 100-digit numbers we need to do 10,000 multiplications and 200 adds.
+For two one million digit numbers we need to do one trillion (10**12) multiplications and two million adds. i.e. for two numbers of n-digits,
+the total number of operations taken is n**2 + 2n, of which the 2n part accounts for less than 0.0002%, totally insignificant.
+
+So the complexity of the algrithm is O(n**2) or quadratic complexity. 
+<strong>We only care about the most significant portion of complexity.</strong>
+
+Now for some cool stuff. Take a list of 1-million names, you know the number of items in the list, and you have to find John Smith.
+Assume the list is sorted alphabatically (sorting is a one time operation in a database, so even it is not very expensive, compared to sorting each time a name is queried)
+
+Now how make hits do we have to take before we find "John Smith"?
+
+If we go one by one, it takes a maximum of N hits before we could find John (John could be the last name). A better approach is 
+split the list by half, see the first name of the second half of list, now you know if John falls in the first half or the second.
+This is called <strong>Binary search</strong>.
+
+For 1-million names, it takes only 20 iterations to hit "John" (Bang!) Now that is serious power! and this complexity of algorithms is
+called <strong>O(log n)</strong> or logarithmic complexity.
+
+Similarly other Big-O complexities are:
+<strong>
+  <ul>
+    <li>O(n!) or Factorial complexity, example: Travelling salesman problem</li>
+    <li>O(n**a) or Polynomial complexity, example: Public Key Cryptography</li>
+  </ul>
+<h3>References</h3>
+[Plain English explanation of Big O](http://stackoverflow.com/questions/487258/plain-english-explanation-of-big-o)
+[You cannot use Big-O to compare the speed of two algorithms](http://stackoverflow.com/a/133162/2200571)
+</h1>
+
+<p>Some simple tools we have to slice are:</p>
+<pre><code>a[start:end] # items from 'start' through 'end-1'
+a[start:]    # items from 'start' through the rest of the array
+a[:end]    # items from the beginning through end-1
+a[:]    # a copy of the whole array
+a[start:end:step] # start through not past end, by step (unlike matlab, step isn't in the middle)
+a[::-1]    # This would reverse the list, read from beginning to end with a step of -1
+</code></pre>
+
+<p>We can do slicing with negative indices</p>
+
+<pre><code>
+a[-1]    # get last item in the array
+a[-1:]    # last item as an array
+# a '-n' is just a shortcut to mean 'length(list)-n'
+a[-4:-1:2]    # if len(a) == 4, then this line is equivalent to a[0:3:2]
+a[-4:2]    # would be equivalent to a[0:2], you got the point right?
+a[-1:2]    # this would be empty, remember python lists (or sets, tuples) are not cyclic, 
+             # they just take two kinds of indices
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ansor maintained by <a href="https://github.com/neotheicebird">neotheicebird</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
