@@ -42,6 +42,7 @@
 
 <p>This article is a compilation of cool logics that can be put together in one line</p>
 
+<strong>first element in an iterable that meets a condition:</strong>
 <pre><code>temperatures = [21, 20.5, 22.5, 26, 31, 38, 36, 32, 40]
 for T in temperatures:
     if T > 37:
@@ -50,9 +51,10 @@ for T in temperatures:
 else:
     print "Within limits"</code></pre>
 
-<p>Can we do this in one line? whoah... that would look bad Or is it? check this line</p>
+<p>Can we do this in one line? whoah... that would look bad won't it Or is it? :D checkout this one-liner</p>
 
-<pre><code>print "Temperature exceeded" if next((T for T in temperatures if T > 37), False) else "Within limits"</code></pre>
+<pre><code>print "Temperature exceeded" if next((T for T in temperatures if T > 37), False) 
+                                        else "Within limits"</code></pre>
 
 <p><strong>"next(generator with an if condition)"</strong> is an alternate for any 
 <strong>"for > if > break"</strong> logic
@@ -62,10 +64,10 @@ else:
 The problem comes when we plot x, y. The plot looks all scrambled and distorted, when we expect a neat sine wave.
 To solve this is easy. All we have to do is sort(x) and reorder y in the same way x is sorted. For example, if
 the first element in list x is moved 3 steps to right, then the first element of y is moved 3 steps to right. Here is 
-a one liner to achieve this:
+an one liner:
 
-<pre><code>[x for (y,x) in sorted(zip(Y,X))]</code></pre> - [sorting list based on values from another list](http://stackoverflow.com/a/6618543)
-  
+<pre><code>[x for (y,x) in sorted(zip(Y,X))]</code></pre> - <markdown>[sorting list based on values from another list](http://stackoverflow.com/a/6618543)
+</markdown>
 </p>
       </section>
     </div>
