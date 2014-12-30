@@ -7,7 +7,7 @@
     <meta name="description" content="Ansor : Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.">
 
     <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
-
+    <link rel="stylesheet" href="../highlighter/prettify.css" />
     <title>Ansor</title>
   </head>
 
@@ -40,7 +40,7 @@
 <a id="1-late-binding" class="anchor" href="#1-late-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://stackoverflow.com/a/27636966/2200571">1 Late binding</a>
 </h1>
 
-<pre><code>fns = []
+<pre class="prettyprint"><code>fns = []
 for i in range(5):
     def fn(x):
         return x + i
@@ -52,7 +52,7 @@ print [f(1) for f in fns]    # prints [5, 5, 5, 5, 5]
 
 <p>The point to understand here is that python uses a late binding approach and the function call takes place at runtime. So, Murphy's law. This is how it is fixed:</p>
 
-<pre><code>for i in range(5):
+<pre class="prettyprint"><code>for i in range(5):
     def fn(x, i=i):  # &lt;-----
         return x + i
     fns.append(fn)
@@ -64,7 +64,7 @@ print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
 
 <p>Is there a more pythonic way to do this. There sure are many:</p>
 
-<pre><code>fns = []
+<pre class="prettyprint"><code>fns = []
 
 for i in range(5):
     def fn(j):
@@ -100,6 +100,7 @@ print [f(1) for f in fns]    # prints [1, 2, 3, 4, 5]
     </div>
 
     
-
+  <script src="../highlighter/prettify.js"></script>
+  <script>prettyPrint();</script>
   </body>
 </html>
