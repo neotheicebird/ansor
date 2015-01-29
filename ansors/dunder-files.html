@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="Ansor : Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="../stylesheets/stylesheet.css">
+
+    <title>Ansor</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/neotheicebird/ansor">View on GitHub</a>
+
+          <h1 id="project_title">Ansor</h1>
+          <h2 id="project_tagline">Compilation of cool SO (StackOverflow) ansors (read: answers) to awesome python questions and a byte of knowledge cookie I got.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/neotheicebird/ansor/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/neotheicebird/ansor/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-ansor" class="anchor" href="#welcome-to-ansor" aria-hidden="true"><span class="octicon octicon-link"></span></a>Welcome to AnSOr.</h3>
+
+<p>Back to <a href="../"><< Topics</a></p>
+
+<h1>
+<a id="5-dunder-files" class="anchor" href="#1-late-binding" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://stackoverflow.com/a/509295/2200571">5 Dunder files</a>
+</h1>
+
+<markdown>
+What are files like `__main__.py`, or `__init__.py`:
+===================================================
+[`__main__.py`](http://stackoverflow.com/questions/4042905/what-is-main-py) is a file is run, when a command-line command like
+</markdown>
+<p>
+<pre><code>python dir_with_py_files</code></pre>
+or
+<pre><code>python dir_with_py_files.zip</code></pre>
+is run.
+
+general contents of __main__.py would be:
+<pre><code>
+#!/usr/bin/env python3
+
+from .module import main
+
+if __name__ == "__main__":
+  main()
+</code></pre>
+</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Ansor maintained by <a href="https://github.com/neotheicebird">neotheicebird</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+  </body>
+</html>
