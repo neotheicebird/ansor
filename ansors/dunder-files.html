@@ -42,15 +42,14 @@
 
 <h3>What are files like `__main__.py`, or `__init__.py`:</h3>
 <p>
-<a href="http://stackoverflow.com/questions/4042905/what-is-main-py">__main__.py</a> is a file is run, <br>
-when a command-line command like
+<a href="http://stackoverflow.com/questions/4042905/what-is-main-py">__main__.py</a> makes sure that when a command-line command like
 
 <pre><code>python dir_with_py_files</code></pre>
 
 or
 
 <pre><code>python dir_with_py_files.zip</code></pre>
-is run.
+is run, any script that the you want to be run is run.
 
 general contents of __main__.py would be:
 <pre><code>
@@ -61,6 +60,28 @@ from .module import main
 if __name__ == "__main__":
   main()
 </code></pre>
+
+The <a href="http://stackoverflow.com/a/448311/2200571">__init__.py</a> file makes Python treat directories containing it as modules.
+
+This is the first file to be loaded in a module, so you can use it to execute code that you want to run each time a module is loaded, 
+or specify the submodules to be exported.
+
+ If you have the files
+
+mydir/spam/__init__.py
+mydir/spam/module.py
+and mydir is on your path, you can import the code in module.py as
+
+import spam.module
+or
+
+from spam import module
+If you remove the __init__.py file, Python will no longer look for submodules inside that directory, so attempts to import the module will fail.
+
+The __init__.py file is usually empty, but can be used to export selected portions of the package under more convenient name, hold convenience functions, etc. Given the example above, the contents of the init module can be accessed as
+
+import spam
+
 </p>
       </section>
     </div>
